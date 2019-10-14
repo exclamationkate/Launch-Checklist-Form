@@ -1,5 +1,6 @@
 // Write your JavaScript code here!
 
+// Randomly selects planet from JSON and displays information
 window.addEventListener("load", function() {
    let json = [];
    fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response){
@@ -50,6 +51,9 @@ window.addEventListener("load", function() {
          fuelLevel = Number(fuelLevel.value);
          cargoWeight = Number(cargoWeight.value);
       }
+      // Resets if invalid information given
+      document.getElementById("launchStatus").style.color = "black";
+      document.getElementById("launchStatus").innerHTML = `Awaiting Information Before Launch`;
       
       let pilotStatus = document.getElementById("pilotStatus");
       let copilotStatus = document.getElementById("copilotStatus");
@@ -76,7 +80,7 @@ window.addEventListener("load", function() {
          cargoStatus.innerHTML = `Cargo weight too high for launch`;
          document.getElementById("launchStatus").style.color = "red";
          document.getElementById("launchStatus").innerHTML = `Shuttle Not Ready For Launch`;
-      } else if (fuelLevel <= 10000) {
+      } else if (cargoWeight <= 10000) {
          cargoStatus.innerHTML = `Cargo weight low enough for launch`;
          cargoStatusGood = true;
       }
