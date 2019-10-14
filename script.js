@@ -66,7 +66,7 @@ window.addEventListener("load", function() {
          fuelStatus.innerHTML = `Fuel level too low for launch`;
          document.getElementById("launchStatus").style.color = "red";
          document.getElementById("launchStatus").innerHTML = `Shuttle Not Ready For Launch`;
-      } else {
+      } else if (fuelLevel >= 10000) {
          fuelStatus.innerHTML = `Fuel level high enough for launch`;
          fuelStatusGood = true;
       }
@@ -76,7 +76,7 @@ window.addEventListener("load", function() {
          cargoStatus.innerHTML = `Cargo weight too high for launch`;
          document.getElementById("launchStatus").style.color = "red";
          document.getElementById("launchStatus").innerHTML = `Shuttle Not Ready For Launch`;
-      } else {
+      } else if (fuelLevel <= 10000) {
          cargoStatus.innerHTML = `Cargo weight low enough for launch`;
          cargoStatusGood = true;
       }
